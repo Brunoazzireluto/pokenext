@@ -1,13 +1,13 @@
 const Footer = () => {
     return (
-        <footer aria-label="Site Footer" class="bg-gray-700">
-        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-            <div class="sm:flex sm:items-center sm:justify-between">
-            <div class="flex justify-center text-red-600 sm:justify-start">
+        <footer aria-label="Site Footer" className="bg-gray-700">
+        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+            <div className="sm:flex sm:items-center sm:justify-between">
+            <div className="flex justify-center text-red-600 sm:justify-start font-fira">
                 <h1>PokeNext</h1>
             </div>
 
-            <p class="mt-4 text-center text-sm text-gray-300 lg:mt-0 lg:text-right">
+            <p className="mt-4 text-center text-sm text-gray-300 lg:mt-0 lg:text-right font-fira">
                 Copyright &copy; 2023. All rights reserved.
             </p>
             </div>

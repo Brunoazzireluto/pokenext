@@ -1,8 +1,7 @@
-import { Inter } from '@next/font/google'
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
 
-const inter = Inter({ subsets: ['latin'] })
+export async function getStaticProps() {
+  
+}
 
 export default function Home() {
   return (
@@ -14,4 +13,4 @@ export default function Home() {
   )
 }
 
-//parei na aula 21
+//parei na aula 22
