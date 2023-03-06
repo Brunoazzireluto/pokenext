@@ -4,7 +4,7 @@ export const getStaticPaths = async() => {
     const maxPokenon = 251;
     const api = 'https://pokeapi.co/api/v2/pokemon/';
     const response = await fetch(`${api}?limit=${maxPokenon}`);
-    const data = await response.json();
+    const data = await  response.json();
     
     //params
     const paths = data.results.map((pokemon, index) => {return {params: {pokemonId: (index + 1).toString()}}})

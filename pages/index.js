@@ -1,4 +1,4 @@
-import Pokeball from '@/public/images/pokeball.png';
+import Pokeball from '../public/images/pokeball.png';
 import Image from 'next/image';
 import Card from '../components/card';
 
