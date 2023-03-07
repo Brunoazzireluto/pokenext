@@ -39,5 +39,3 @@ export default function Home({pokemons}) {
     </>
   )
 }
-
-//parei na aula 22

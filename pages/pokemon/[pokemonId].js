@@ -1,4 +1,7 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+
 
 export const getStaticPaths = async() => {
     const maxPokenon = 251;
@@ -9,7 +12,7 @@ export const getStaticPaths = async() => {
     //params
     const paths = data.results.map((pokemon, index) => {return {params: {pokemonId: (index + 1).toString()}}})
 
-    return { paths, fallback: false,}
+    return { paths, fallback: true,}
 }
 
 export const getStaticProps = async(context) => {
@@ -45,12 +48,32 @@ const classTypes = {
 
 const Pokemon = ({pokemon}) => {
     
+    const router = useRouter()
+
+    if (router.isFallback) {
+        return (
+            <div className="flex items-center justify-center w-full h-screen">
+                <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
+                    
+                            <svg fill='none' className="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
+                                <path clip-rule='evenodd'
+                                    d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
+                                    fill='currentColor' fill-rule='evenodd' />
+                            </svg>
+
+                    
+                    <div>Loading ...</div>
+                </div>
+            </div>
+        )
+    }
+
     return (
-        <div className="mx-auto h-screen flex flex-col p-2 justify-around items-center">
-            <h1 className="bg-zinc-800 w-2/6 h-[10%] flex justify-center
-             items-center text-white capitalize font-bold text-3xl mb-4 mt-12">{pokemon.name}</h1>
+        <div className="mx-auto h-full flex flex-col p-4 justify-around items-center">
+            <h1 className="bg-zinc-800 w-4/6 h-[10%] flex justify-center
+             items-center text-white capitalize font-bold text-3xl mb-4 mt-8 sm:w-1/6" >{pokemon.name}</h1>
             <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-                width={225} height={225} alt={pokemon.name} className='border-b border-gray-300 mb-4 ' />
+                width={225} height={225} alt={pokemon.name} className='border-b border-gray-300 mb-4' />
             <div className="flex flex-col justify-center items-center m-2">
                 <h3 className="font-bold text-lg">Número:</h3>
                 <p className="text-lg">#{ pokemon.id}</p>
@@ -66,7 +89,7 @@ const Pokemon = ({pokemon}) => {
                     ))}
                 </div>
             </div>
-            <div className="flex justify-around items-center w-1/6 mb-12">
+            <div className="flex justify-around items-center w-4/6 sm:w-1/6">
                 <div>
                     <h4 className='font-bold text-lg'>Altura:</h4>
                     <p className="text-lg">{ pokemon.height * 10} cm</p>

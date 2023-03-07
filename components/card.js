@@ -4,8 +4,8 @@ import Link from "next/link";
 const Card = ({ pokemon }) => {
     return (
         <div className='m-4 rounded-xl shadow-lg shadow-red-600 
-                        bg-zinc-800 border border-red-700 w-2/12 flex flex-col
-                        justify-around items-center p-1 pb-4'>
+                        bg-zinc-800 border border-red-700 lg:w-2/12 flex flex-col
+                        justify-around items-center p-1 pb-4 md:w-3/12 sm:w-3/12 '>
             <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
                 width={120} height={120} alt={pokemon.name} />
             <p className="border border-white bg-red-600
